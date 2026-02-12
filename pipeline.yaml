@@ -35,6 +35,15 @@ spec:
       runAfter:
         - init 
 
+    - name: npminstall
+      workspaces:
+        - name: source
+          workspace: pipeline-workspace
+      taskRef:
+        name: npm
+      runAfter:
+        - clone
+
     - name: tests
       workspaces:
         - name: source
